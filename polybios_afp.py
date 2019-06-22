@@ -51,14 +51,14 @@ def main(args):
 			# se definen las variables para CIFRAR por POLYBIOS, se lee el archivo de texto plano y se almacena su contenido
 			_plyType = 1
 			plyFile = arg
-			file = open(arg,'r')
+			file = open(arg,'r',encoding='ISO-8859-1')
 			message = file.read()
 			file.close()
 		if opt=='-d':
 			# se definen las variables para DESCIFRAR por POLYBIOS, se lee el archivo de texto cifrado y se almacena
 			_plyType = 2
 			plyFile = arg
-			file = open(arg,'r')
+			file = open(arg,'r',encoding='ISO-8859-1')
 			message = file.read()
 			file.close()
 
@@ -94,7 +94,7 @@ def AnalisysFP():
 		files_list = files.split('*') # si existen varios archivos, se dividen en un alista
 		if len(files_list)>0: # se busca leer el texto de cada archivo y concatenarlo en una variable
 			for file in files_list:
-				_open = open(_dir[0]+'/'+file,'r')
+				_open = open(_dir[0]+'/'+file,'r',encoding='ISO-8859-1')
 				message += _open.read()
 				_open.close()
 
@@ -321,7 +321,7 @@ def decrypt(message, key):
 			#print("ERROR")
 			continue
 	#Creación y alamacenamiento del archivo .dec
-	f = open(plyFile.split(".")[0]+".dec", "w")
+	f = open(plyFile.split(".")[0]+".dec",'w',encoding='ISO-8859-1')
 	#f.write("".join(decript))
 	f.write(M)
 	f.close()	
